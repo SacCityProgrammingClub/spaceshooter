@@ -12,6 +12,7 @@ pygame.display.set_caption("Collision")
 #create main rectangle
 rect_1 = pygame.Rect(0, 0, 25, 25)
 
+boop_sound = pygame.mixer.Sound("assets/643139__joelleohworld__boop.wav")
 #create empty list, then create 16 obstacle rectangles using a loop and add to list
 obstacles = []
 for _ in range(16):
@@ -36,6 +37,7 @@ while run:
   col = GREEN
   for obstacle in obstacles:
     if rect_1.colliderect(obstacle):
+      pygame.mixer.Sound.play(boop_sound)
       col = RED
 
   #get mouse coordinates and use them to position the rectangle
